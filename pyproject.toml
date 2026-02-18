@@ -35,7 +35,16 @@ classifiers = [
     "Topic :: Text Processing :: Markup :: HTML",
 ]
 requires-python = ">=3.9"
-dynamic = ["dependencies", "optional-dependencies"]
+dynamic = ["optional-dependencies"]
+dependencies = ["argparse-typing>=0.2.0"]
+
+[project.optional-dependencies]
+pyside = ["Pyside2>=5.12.0"]
+pyside2 = ["Pyside2>=5.12.0"]
+pyside6 = ["Pyside6>=6.0.0"]
+pyqt = ["PyQt5>=5.0.0"]
+pyqt5 = ["PyQt5>=5.0.0"]
+pyqt6 = ["PyQt6>=6.0.0"]
 
 [project.urls]
 Source = "https://github.com/MagIlyasDOMA/pyqtcli"
@@ -43,10 +52,6 @@ Repository = "https://github.com/MagIlyasDOMA/pyqtcli.git"
 
 [tool.setuptools]
 packages = {find = {}}
-include-package-data = true
-
-#[tool.setuptools.dynamic]
-#dependencies = {file = ["requirements/requirements.txt"]}
 
 [tool.setuptools.dynamic.optional-dependencies]
 dev = {file = ["requirements/dev_requirements.txt"]}
