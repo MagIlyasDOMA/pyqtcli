@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pqtcli"
+version = "0.1.0"
+#description = ""
+#readme = "README.md"
+authors = [
+    {name = "Маг Ильяс DOMA (MagIlyasDOMA)", email = "magilyas.doma.09@list.ru"},
+]
+license = {text = "MIT"}
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows :: Windows 10",
+    "Operating System :: Microsoft :: Windows :: Windows 11",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Framework :: Django",
+    "Framework :: Django :: 5.2",
+    "Framework :: Django :: 6.0",
+    "Natural Language :: English",
+    "Natural Language :: Russian",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Text Processing :: Markup",
+    "Topic :: Text Processing :: Markup :: HTML",
+]
+requires-python = ">=3.9"
+dynamic = ["dependencies", "optional-dependencies"]
+
+[project.urls]
+Source = "https://github.com/MagIlyasDOMA/pyqtcli"
+Repository = "https://github.com/MagIlyasDOMA/pyqtcli.git"
+
+[tool.setuptools]
+packages = {find = {}}
+include-package-data = true
+
+#[tool.setuptools.dynamic]
+#dependencies = {file = ["requirements/requirements.txt"]}
+
+[tool.setuptools.dynamic.optional-dependencies]
+dev = {file = ["requirements/dev_requirements.txt"]}

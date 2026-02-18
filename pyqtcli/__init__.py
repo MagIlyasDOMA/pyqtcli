@@ -1,5 +1,5 @@
 from argparse import ArgumentParser
-from PySide6.QtWidgets import QApplication
+from .QtWidgets import QApplication
 from .argparser import CLIMixin
 
 

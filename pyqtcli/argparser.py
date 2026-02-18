@@ -1,5 +1,5 @@
 import argparse
-from PySide6.QtWidgets import QMessageBox
+from .QtWidgets import QT_BINDING, QMessageBox
 
 
 class GUIHelpParser(argparse.ArgumentParser):
@@ -10,13 +10,22 @@ class GUIHelpParser(argparse.ArgumentParser):
     def _init_messagebox(self):
         messagebox = QMessageBox()
         messagebox.setWindowTitle("Help")
-        messagebox.setIcon(QMessageBox.Icon.Information)
+
+        # Совместимость с разными версиями Qt
+        if QT_BINDING in ['PySide6', 'PyQt6']:
+            messagebox.setIcon(QMessageBox.Icon.Information)
+        else:  # PyQt5, PySide2
+            messagebox.setIcon(QMessageBox.Information)
+
         messagebox.setText(self.format_help())
         return messagebox
 
-    def print_help(self, file = None):
+    def print_help(self, file=None):
         super().print_help(file)
-        self.messagebox.exec()
+        try:
+            self.messagebox.exec()
+        except AttributeError:
+            self.messagebox.exec_()
 
 
 class CLIMixin:
