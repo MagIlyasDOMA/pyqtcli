@@ -20,6 +20,9 @@ QT_BINDING, QtWidgets = get_qt_binding()
 
 QApplication = QtWidgets.QApplication
 QMessageBox = QtWidgets.QMessageBox
+QMainWindow = QtWidgets.QMainWindow
+QWidget = QtWidgets.QWidget
+QDialog = QtWidgets.QDialog
 
 
 
