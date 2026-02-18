@@ -1,0 +1,5 @@
+Pyside6
+PyQt6
+PyQt5
+Pyside2
+argparse-typing>=0.2.0

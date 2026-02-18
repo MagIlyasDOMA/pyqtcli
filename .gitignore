@@ -1,0 +1,6 @@
+*.7z
+.venv
+.venv310
+test.py
+.idea
+__pycache__
