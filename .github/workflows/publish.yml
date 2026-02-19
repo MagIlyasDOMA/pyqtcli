@@ -31,7 +31,7 @@ jobs:
         run: |
           # NOTE: put your own distribution build steps here.
           python -m pip install --upgrade pip
-          python -m pip install setuptools whell twine build
+          python -m pip install setuptools wheel twine build
           python -m build
 
       - name: Upload distributions
