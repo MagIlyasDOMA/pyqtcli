@@ -1,5 +1,5 @@
 <a id="doc_en"></a>
-# `pyqtcli` Documentation (PyQt/PySide CLI Integration)
+# Pyqtcli documentation (PyQt/PySide CLI Integration)
 #### [Документация на русском](#doc_ru)
 
 **PyQtCLI** is a Python package that simplifies integrating command-line argument parsing into Qt-based GUI applications (PySide/PyQt). It allows you to easily combine the standard `argparse` module with the ability to display help messages in a graphical window (`QMessageBox`).
@@ -130,7 +130,7 @@ Package Structure
 ---
 
 <a id="doc_ru"></a>
-# Документация пакета `pyqtcli` (PyQt/PySide CLI Integration)
+# Документация пакета pyqtcli (PyQt/PySide CLI Integration)
 #### [Documentation in English](#doc_en)
 
 **PyQtCLI** — это пакет для Python, который упрощает интеграцию парсинга аргументов командной строки в приложениях с графическим интерфейсом на базе Qt (PySide/PyQt). Он позволяет легко комбинировать стандартный `argparse` с возможностью отображения справки в графическом окне (`QMessageBox`).

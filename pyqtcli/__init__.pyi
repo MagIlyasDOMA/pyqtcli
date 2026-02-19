@@ -4,7 +4,7 @@ from typing import Final, Sequence, Any
 from ._widgets import QApplication
 from .argparser import CLIMixin, GUIHelpParser
 
-__version__: Final[str] = '1.0.0'
+__version__: Final[str] = '1.0.1'
 __all__: Final[str] = ['QCLIApplication', 'CLIMixin', 'GUIHelpParser']
 
 

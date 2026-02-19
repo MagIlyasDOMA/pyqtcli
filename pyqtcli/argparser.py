@@ -1,4 +1,4 @@
-import argparse
+import argparse, sys
 from ._widgets import QT_BINDING, QMessageBox
 
 __all__ = ['GUIHelpParser', 'CLIMixin']
@@ -7,27 +7,36 @@ __all__ = ['GUIHelpParser', 'CLIMixin']
 class GUIHelpParser(argparse.ArgumentParser):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.messagebox = self._init_messagebox()
+        self._messagebox = None  # Не создаем сразу
+        self.exit_on_help = kwargs.pop('exit_on_help', True)
 
-    def _init_messagebox(self):
-        messagebox = QMessageBox()
-        messagebox.setWindowTitle("Help")
+    def _init_messagebox_lazy(self):
+        """Ленивое создание QMessageBox"""
+        if self._messagebox is None:
+            self._messagebox = QMessageBox()
+            self._messagebox.setWindowTitle("Help")
 
-        # Совместимость с разными версиями Qt
-        if QT_BINDING in ['PySide6', 'PyQt6']:
-            messagebox.setIcon(QMessageBox.Icon.Information)
-        else:  # PyQt5, PySide2
-            messagebox.setIcon(QMessageBox.Information)
+            # Совместимость с разными версиями Qt
+            if QT_BINDING in ['PySide6', 'PyQt6']:
+                self._messagebox.setIcon(QMessageBox.Icon.Information)
+            else:  # PyQt5, PySide2
+                self._messagebox.setIcon(QMessageBox.Information)
 
-        messagebox.setText(self.format_help())
-        return messagebox
+            self._messagebox.setText(self.format_help())
+
+        return self._messagebox
 
     def print_help(self, file=None):
         super().print_help(file)
         try:
-            self.messagebox.exec()
+            self._init_messagebox_lazy().exec()
         except AttributeError:
-            self.messagebox.exec_()
+            self._init_messagebox_lazy().exec_()
+        if self.exit_on_help: sys.exit(0)
+
+    @property
+    def messagebox(self):
+        return self._init_messagebox_lazy()
 
 
 class CLIMixin:

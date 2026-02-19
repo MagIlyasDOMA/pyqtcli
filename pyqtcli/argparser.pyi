@@ -9,11 +9,15 @@ __all__: Final[str] = ['GUIHelpParser', 'CLIMixin']
 
 class GUIHelpParser(ArgumentParser):
     def __init__(self, *args, **kwargs) -> None:
-        self.messagebox: QMessageBox = ...
+        self._messagebox: QMessageBox = ...
+        self.exit_on_help: bool = ...
 
-    def _init_messagebox(self) -> QMessageBox: ...
+    def _init_messagebox_lazy(self) -> QMessageBox: ...
 
     def print_help(self, file=None) -> None: ...
+
+    @property
+    def messagebox(self) -> QMessageBox: ...
 
 class CLIMixin:
     if sys.version_info >= (3, 14):
@@ -35,6 +39,7 @@ class CLIMixin:
                 *,
                 suggest_on_error: bool = False,
                 color: bool = False,
+                exit_on_help: bool = True
         ) -> None:
             self.parser: GUIHelpParser = ...
     else:
@@ -53,6 +58,7 @@ class CLIMixin:
                 add_help: bool = True,
                 allow_abbrev: bool = True,
                 exit_on_error: bool = True,
+                exit_on_help: bool = True
         ) -> None:
             self.parser: GUIHelpParser = ...
 

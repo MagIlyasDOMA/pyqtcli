@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyqtcli"
-version = "0.1.0"
+version = "0.1.1"
 description = "Package for supporting command-line arguments in Qt for Python applications"
 readme = "README.md"
 authors = [
