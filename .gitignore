@@ -4,3 +4,6 @@
 test.py
 .idea
 __pycache__
+release_template.md
+/dist
+/pyqtcli.egg-info
