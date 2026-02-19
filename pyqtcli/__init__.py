@@ -1,7 +1,8 @@
-from .QtWidgets import QApplication
+from ._widgets import QApplication
 from .argparser import CLIMixin, GUIHelpParser
 
 __version__ = '0.1.0'
+__all__ = ['QCLIApplication', 'CLIMixin', 'GUIHelpParser']
 
 
 class QCLIApplication(QApplication, CLIMixin):

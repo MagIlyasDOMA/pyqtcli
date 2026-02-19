@@ -1,5 +1,7 @@
 import argparse
-from .QtWidgets import QT_BINDING, QMessageBox
+from ._widgets import QT_BINDING, QMessageBox
+
+__all__ = ['GUIHelpParser', 'CLIMixin']
 
 
 class GUIHelpParser(argparse.ArgumentParser):
@@ -32,7 +34,7 @@ class CLIMixin:
     def __init__(self, *args, **kwargs):
         self.parser = GUIHelpParser(*args, **kwargs)
 
-    def add_arguments(self, *name_or_flags, **kwargs):
+    def add_argument(self, *name_or_flags, **kwargs):
         return self.parser.add_argument(*name_or_flags, **kwargs)
 
     def add_argument_group(self, *args, **kwargs):

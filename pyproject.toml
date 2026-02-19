@@ -3,10 +3,10 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pqtcli"
+name = "pyqtcli"
 version = "0.1.0"
-#description = ""
-#readme = "README.md"
+description = "Package for supporting command-line arguments in Qt for Python applications"
+readme = "README.md"
 authors = [
     {name = "Маг Ильяс DOMA (MagIlyasDOMA)", email = "magilyas.doma.09@list.ru"},
 ]
@@ -52,6 +52,7 @@ Repository = "https://github.com/MagIlyasDOMA/pyqtcli.git"
 
 [tool.setuptools]
 packages = {find = {}}
+package-data = {"pyqtcli" = ["*.pyi", "py.typed"]}
 
 [tool.setuptools.dynamic.optional-dependencies]
 dev = {file = ["requirements/dev_requirements.txt"]}
